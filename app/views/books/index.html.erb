@@ -38,6 +38,17 @@
 							<th>introduction</th>
 							<th><%= current_user.introduction %>
 						</tr>
+						<tr class="follow">
+							<th><%= link_to 'フォロー', user_follows_path(current_user.id) %></th>
+							<th><%= current_user.followings.count %>人</th>
+						</tr>
+						<tr class="follower">
+							<th><%= link_to 'フォロワー', user_followers_path(current_user.id) %></th>
+							<th><%= current_user.followers.count %>人</th>
+						</tr>
+				<div>
+					<%= render "users/follow_form", user: current_user %>
+				</div>
 					</tbody>
 				</table>
 				<div class="row">

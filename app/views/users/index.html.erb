@@ -20,6 +20,17 @@
 							<th>introduction</th>
 							<th><%= current_user.introduction %>
 						</tr>
+						<tr class="follow">
+							<th><%= link_to 'フォロー', user_follows_path(current_user.id) %></th>
+							<th><%= current_user.followings.count %>人</th>
+						</tr>
+						<tr class="follower">
+							<th><%= link_to 'フォロワー', user_followers_path(current_user.id) %></th>
+							<th><%= current_user.followers.count %>人</th>
+						</tr>
+				<div>
+					<%= render "follow_form", user: current_user %>
+				</div>
 					</tbody>
 				</table>
 				<div class="row">
@@ -43,6 +54,8 @@
 							<th>image</th>
 							<th>name</th>
 							<th></th>
+							<th></th>
+							<th></th>
 							<th colspan="3"></th>
 						</tr>
 					</thead>
@@ -51,6 +64,9 @@
 						<tr>
 							<td><%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "10*10" %></td>
 							<td><%= user.name %></td>
+							<td>フォロー:<%= user.followings.count %>人</td>
+							<td>フォロワー:<%= user.followers.count %>人</td>
+							<td><%= render "follow_form", user: user %></td>
 							<td><%= link_to "Show", user_path(user.id) %></td>
 						</tr>
 					</tbody>

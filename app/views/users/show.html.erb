@@ -23,8 +23,19 @@
 							<th>introduction</th>
 							<th><%= @user.introduction %>
 						</tr>
+						<tr class="follow">
+							<th><%= link_to 'フォロー', user_follows_path(@user.id) %></th>
+							<th><%= @user.followings.count %>人</th>
+						</tr>
+						<tr class="follower">
+							<th><%= link_to 'フォロワー', user_followers_path(@user.id) %></th>
+							<th><%= @user.followers.count %>人</th>
+						</tr>
 					</tbody>
 				</table>
+				<div>
+					<%= render "follow_form", user: @user %>
+				</div>
 				<div class="row">
 					<% if @user == current_user %>
 					<p>
