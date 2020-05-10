@@ -1,5 +1,10 @@
 # README
 
+
+## フォロー後の動作を修正。
+
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
